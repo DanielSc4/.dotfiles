@@ -1,5 +1,21 @@
 local opt = vim.opt
 
+
+-- Enable mouse mode
+opt.mouse = 'a'
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+opt.clipboard = 'unnamedplus'
+-- Enable break indent
+opt.breakindent = true
+-- Save undo history
+opt.undofile = true
+-- Set completeopt to have a better completion experience
+opt.completeopt = 'menuone,noselect'
+
+
+
 -- line numbers
 opt.relativenumber= true
 opt.number = true

@@ -125,13 +125,10 @@ fi
 # alias for vim
 alias vim=nvim
 
+# Theme zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# To manage dotfiles with git, https://www.anand-iyer.com/blog/2018/a-simpler-way-to-manage-your-dotfiles/
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-
-
+# set color term
 export TERM=xterm-256color

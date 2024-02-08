@@ -3,6 +3,7 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+        "hrsh7th/cmp-nvim-lsp", -- LSP completion capabilities
         "hrsh7th/cmp-buffer", -- source for text in buffer
         "hrsh7th/cmp-path", -- source for file system paths
         "L3MON4D3/LuaSnip", -- snippet engine
@@ -12,7 +13,6 @@ return {
     },
     config = function()
         local cmp = require("cmp")
-
 
         local luasnip = require("luasnip")
 
