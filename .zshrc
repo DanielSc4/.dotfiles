@@ -132,3 +132,10 @@ alias vim=nvim
 
 # set color term
 export TERM=xterm-256color
+
+
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.3.0
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
