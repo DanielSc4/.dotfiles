@@ -4,9 +4,6 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-        require("catppuccin").setup({
-            flavour = "frappe",
-        })
-        require("catppuccin").load()
+        vim.cmd.colorscheme "catppuccin-frappe"
     end,
 }
