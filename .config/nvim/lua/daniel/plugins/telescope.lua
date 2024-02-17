@@ -11,12 +11,24 @@ return {
             local builtin = require('telescope/builtin')
 
             telescope.load_extension("file_browser")
-            
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            vim.keymap.set('n', '<leader>fd', ":Telescope file_browser<cr><esc>", {})
+
+            local wk = require("which-key")
+            wk.register({
+                ["<leader>"] = {
+                    name = "Find",
+                    ff = { builtin.find_files, "Find files" },
+                    fg = { builtin.live_grep, "Live grep"},
+                    fb = { builtin.buffers, "Find buffers" },
+                    fh = { builtin.help_tags, "Find help tags" },
+                    fd = { ":Telescope file_browser<cr><esc>", "Find directories" },
+                    fc = { builtin.commands, "Find commands" },
+                }
+            }, {})
+            -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+            -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+            -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+            -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+            -- vim.keymap.set('n', '<leader>fd', ":Telescope file_browser<cr><esc>", {})
         end,
     },
     {
