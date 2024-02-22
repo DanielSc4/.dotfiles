@@ -3,7 +3,7 @@
 This directory contains the dotfiles for my system
 
 <p align="center">
-  <img src="https://i.imgur.com/7YZLEIN.gif" alt="resulting config" width="50%" height="50%"/>
+  <img src="https://i.imgur.com/7YZLEIN.gif" alt="resulting config" width="70%" height="70%"/>
 </p>
 
 ## Requirements
