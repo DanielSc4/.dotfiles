@@ -2,7 +2,9 @@
 
 This directory contains the dotfiles for my system
 
-![Resulting config](https://i.imgur.com/7YZLEIN.gif)
+<p align="center">
+  <img src="https://i.imgur.com/7YZLEIN.gif" alt="resulting config" width="50%" height="50%"/>
+</p>
 
 ## Requirements
 
