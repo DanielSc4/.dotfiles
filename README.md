@@ -2,7 +2,7 @@
 
 This directory contains the dotfiles for my system
 
-![Resulting config](https://imgur.com/a/qjpO6Pq)
+![Resulting config](https://i.imgur.com/7YZLEIN.gif)
 
 ## Requirements
 
