@@ -2,6 +2,8 @@
 
 This directory contains the dotfiles for my system
 
+![Resulting config](https://imgur.com/a/qjpO6Pq)
+
 ## Requirements
 
 - `git`, ofc
