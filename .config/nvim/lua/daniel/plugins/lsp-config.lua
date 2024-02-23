@@ -1,5 +1,8 @@
 return {
     {
+        "github/copilot.vim",
+    },
+    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
