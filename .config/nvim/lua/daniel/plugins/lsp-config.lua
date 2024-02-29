@@ -1,8 +1,5 @@
 return {
     {
-        "github/copilot.vim",
-    },
-    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup()
@@ -44,6 +41,9 @@ return {
                 vim.lsp.buf.format { async = true }
             end, {})
         end
+    },
+    {
+        "github/copilot.vim",
     },
 }
 
