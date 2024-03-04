@@ -5,6 +5,7 @@ return {
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-file-browser.nvim',
+            'andrew-george/telescope-themes',
         },
         config = function()
             local telescope = require("telescope")
@@ -12,16 +13,19 @@ return {
 
             telescope.load_extension("file_browser")
 
+
+
             local wk = require("which-key")
             wk.register({
                 ["<leader>"] = {
                     name = "Find",
                     ff = { builtin.find_files, "Find files" },
-                    fg = { builtin.live_grep, "Live grep"},
+                    fg = { builtin.live_grep, "Live grep" },
                     fb = { builtin.buffers, "Find buffers" },
                     fh = { builtin.help_tags, "Find help tags" },
                     fd = { ":Telescope file_browser<cr><esc>", "Find directories" },
                     fc = { builtin.commands, "Find commands" },
+                    ft = { ":Telescope themes<CR>", "Theme Switcher", noremap = true, silent = true },
                 }
             }, {})
             -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
