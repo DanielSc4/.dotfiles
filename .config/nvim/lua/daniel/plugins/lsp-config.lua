@@ -1,6 +1,23 @@
 return {
     {
         "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = {
+                "lua_ls",
+                "bashls",
+                "jsonls",
+                "ltex",
+                "marksman",
+
+                "pyright",
+                "mypy",
+                "isort",
+                "black",
+
+                "rust_analyzer",
+                "lemminx",
+            },
+        },
         config = function()
             require("mason").setup()
         end
@@ -10,15 +27,6 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls",
-                    "bashls",
-                    "jsonls",
-                    "ltex",
-                    "marksman",
-                    "pyright",
-                    -- "jedi-language-server",
-                    "rust_analyzer",
-                    "lemminx",
                 }
             })
         end
@@ -30,20 +38,26 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({ capabilities = capabilities})
-            lspconfig.pyright.setup({capabilities = capabilities})
+            lspconfig.lua_ls.setup({ capabilities = capabilities })
+            lspconfig.pyright.setup({ capabilities = capabilities })
 
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', '<C-K>', vim.lsp.buf.signature_help, {})
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+
+            local wk = require("which-key")
+            wk.register({
+                ["K"] = { vim.lsp.buf.hover, "hover" },
+                ["<C-K>"] = { vim.lsp.buf.signature_help, "signature help" },
+                ["gd"] = { vim.lsp.buf.definition, "go to definition" },
+                ["<leader>f"] = {
+                    function()
+                        vim.lsp.buf.format { async = true }
+                    end,
+                    "go to definition",
+                },
+            })
             vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
-            vim.keymap.set('n', '<leader>f', function()
-                vim.lsp.buf.format { async = true }
-            end, {})
         end
     },
     {
         "github/copilot.vim",
     },
 }
-
