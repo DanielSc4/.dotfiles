@@ -16,7 +16,6 @@ family = "MesloLGL Nerd Font"
 startup_mode = "Windowed"
 dynamic_padding = true
 opacity = 1.0
-decorations = "buttonless"
 
 [window.padding]
 x = 6
