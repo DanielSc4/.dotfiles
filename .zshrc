@@ -139,3 +139,8 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.3.0
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+# starship
+eval "$(starship init zsh)"
