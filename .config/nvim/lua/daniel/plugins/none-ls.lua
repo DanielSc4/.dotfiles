@@ -1,6 +1,6 @@
 return {
     "nvimtools/none-ls.nvim",
-    config = function ()
+    config = function()
         local null_ls = require("null-ls")
 
         null_ls.setup({
@@ -10,6 +10,6 @@ return {
             null_ls.builtins.formatting.black,
         })
 
-    vim.keymap.set('n', "<leader>gf", vim.lsp.buf.format, {})
+        vim.keymap.set('n', "<leader>gf", vim.lsp.buf.format, {})
     end,
 }

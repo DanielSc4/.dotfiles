@@ -7,7 +7,15 @@ return {
         config = function()
             require("gitsigns").setup()
 
-            vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {}) -- show diff for line
+            local wk = require("which-key")
+            wk.register({
+                ["<leader>g"] = {
+                    name = "Git",
+                    s = { ":G<CR>", "Status" },
+                    p = { ":Gitsigns preview_hunk<CR>", "Preview hunk" },   -- show diff for line
+
+                }
+            }, {})
         end
     }
 }

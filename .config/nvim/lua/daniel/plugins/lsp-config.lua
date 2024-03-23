@@ -44,25 +44,27 @@ return {
 
             local wk = require("which-key")
             wk.register({
-                ["K"] = { vim.lsp.buf.hover, "hover" },
-                ["<C-K>"] = { vim.lsp.buf.signature_help, "signature help" },
-                ["gd"] = { vim.lsp.buf.definition, "go to definition" },
+                ["K"] = { vim.lsp.buf.hover, "Hover" },
+                ["<C-K>"] = { vim.lsp.buf.signature_help, "Signature help" },
+                ["gd"] = { vim.lsp.buf.definition, "Go to Definition" },
                 ["<leader>f"] = {
                     function()
                         vim.lsp.buf.format { async = true }
                     end,
-                    "go to definition",
+                    "Format current buffer",
                 },
+                ["<leader>ca"] = { vim.lsp.buf.code_action, "Code action", mode = { "n", "v" } },
             })
-            vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
         end
     },
     {
-
         "github/copilot.vim",
         config = function()
-            vim.keymap.set('i', '<C-l>', 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false })
-            vim.g.copilot_no_tab_map = false 
+            vim.keymap.set(
+                'i', '<C-Space>', 'copilot#Accept("<CR>")',
+                { silent = true, expr = true, replace_keycodes = false }
+            )
+            vim.g.copilot_no_tab_map = false
         end
     },
 }

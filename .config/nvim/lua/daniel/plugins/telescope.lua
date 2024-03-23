@@ -17,22 +17,17 @@ return {
 
             local wk = require("which-key")
             wk.register({
-                ["<leader>"] = {
+                ["<leader>f"] = {
                     name = "Find",
-                    ff = { builtin.find_files, "Find files" },
-                    fg = { builtin.live_grep, "Live grep" },
-                    fb = { builtin.buffers, "Find buffers" },
-                    fh = { builtin.help_tags, "Find help tags" },
-                    fd = { ":Telescope file_browser<cr><esc>", "Find directories" },
-                    fc = { builtin.commands, "Find commands" },
-                    ft = { ":Telescope themes<CR>", "Theme Switcher", noremap = true, silent = true },
+                    f = { builtin.find_files, "Find files" },
+                    g = { builtin.live_grep, "Live grep" },
+                    b = { builtin.buffers, "Find buffers" },
+                    h = { builtin.help_tags, "Find help tags" },
+                    d = { ":Telescope file_browser<cr><esc>", "Find directories" },
+                    c = { builtin.commands, "Find commands" },
+                    t = { ":Telescope themes<CR>", "Theme Switcher", noremap = true, silent = true },
                 }
             }, {})
-            -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-            -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-            -- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            -- vim.keymap.set('n', '<leader>fd', ":Telescope file_browser<cr><esc>", {})
         end,
     },
     {
