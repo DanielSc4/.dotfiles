@@ -35,6 +35,7 @@ opt.smartcase = true
 
 -- cursor line
 opt.cursorline = true
+opt.scrolloff = 8
 
 -- appearance
 opt.termguicolors = true
