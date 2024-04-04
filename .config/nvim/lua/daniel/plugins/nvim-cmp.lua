@@ -39,8 +39,17 @@ return {
                 ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                -- ["<C-e>"] = cmp.mapping.abort(),    -- close completion window
-                ["<Esc>"] = cmp.mapping.abort(),    -- close completion window
+                ["<C-e>"] = cmp.mapping.abort(),    -- close completion window
+                -- ["<Esc>"] = cmp.mapping.abort(),
+                ["<Esc>"] = cmp.mapping(function (fallback)
+                    -- abort and esc to normal mode
+                    if cmp.visible() then
+                        cmp.abort()
+                        fallback()
+                    else
+                        fallback()
+                    end
+                end),
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
