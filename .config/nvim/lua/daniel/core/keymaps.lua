@@ -12,6 +12,12 @@ vim.keymap.set("n", "N", "nzzzv")
 -- paste without rewrite the P register (i.e. without copying)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+-- Esc to clear highlight
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Trying jj to escape
+vim.keymap.set("i", "jj", "<Esc>")
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

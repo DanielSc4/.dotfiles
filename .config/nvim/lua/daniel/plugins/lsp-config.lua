@@ -38,8 +38,17 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({ capabilities = capabilities })
-            lspconfig.pyright.setup({ capabilities = capabilities })
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostic = { globals = { "vim" } }
+                    }
+                }
+            })
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+            })
 
 
             local wk = require("which-key")
@@ -47,6 +56,7 @@ return {
                 ["K"] = { vim.lsp.buf.hover, "Hover" },
                 ["<C-K>"] = { vim.lsp.buf.signature_help, "Signature help" },
                 ["gd"] = { vim.lsp.buf.definition, "Go to Definition" },
+                ["gr"] = { vim.lsp.buf.references, "References" },
                 ["<leader>f"] = {
                     function()
                         vim.lsp.buf.format { async = true }
