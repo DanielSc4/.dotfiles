@@ -7,6 +7,19 @@ opt.mouse = 'a'
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 opt.clipboard = 'unnamedplus'
+-- To use NVIM clipboard via ssh
+-- vim.g.clipboard = {
+--     name = 'OSC 52',
+--     copy = {
+--         ["+"] = require('vim.clipboard.osc52').copy,
+--         ["*"] = require('vim.clipboard.osc52').copy,
+--     },
+--     paste = {
+--         ["+"] = require('vim.clipboard.osc52').copy,
+--         ["*"] = require('vim.clipboard.osc52').copy,
+--     },
+-- }
+
 -- Enable break indent
 opt.breakindent = true
 -- Save undo history
