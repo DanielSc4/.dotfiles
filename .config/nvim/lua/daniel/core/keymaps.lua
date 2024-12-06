@@ -18,6 +18,9 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Trying jj to escape
 vim.keymap.set("i", "jj", "<Esc>")
 
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", "yygccp")
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
