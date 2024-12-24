@@ -25,6 +25,6 @@ osc52 = "CopyPaste"
 
 [general]
 import = [
-    # "~/.config/alacritty/catppuccin-frappe.toml"
-    "~/.config/alacritty/catppuccin-frappe.toml"    # change this to [l atte - f rappes] to switch between themes
+    # "~/.config/alacritty/catppuccin-latte.toml"
+    "~/.config/alacritty/catppuccin-latte.toml"    # change this to [l atte - f rappes] to switch between themes
 ]
