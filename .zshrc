@@ -146,3 +146,5 @@ eval "$(starship init zsh)"
 alias lighttheme="sed -i -e 's/catppuccin-frappe/catppuccin-latte/g' ~/.config/alacritty/alacritty.toml"
 alias darktheme="sed -i -e 's/catppuccin-latte/catppuccin-frappe/g' ~/.config/alacritty/alacritty.toml"
 
+
+. "$HOME/.local/bin/env"
