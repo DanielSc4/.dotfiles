@@ -1,7 +1,5 @@
 local opt = vim.opt
 
-
-
 opt.mouse = 'a'-- Enable mouse mode
 
 opt.breakindent = true -- Enable break indent
@@ -33,7 +31,7 @@ opt.scrolloff = 8
 
 -- appearance
 opt.termguicolors = true
-opt.background = 'dark'
+-- opt.background = nil
 opt.signcolumn = "yes"
 
 -- backspace
