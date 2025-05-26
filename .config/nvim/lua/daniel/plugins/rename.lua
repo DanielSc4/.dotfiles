@@ -6,13 +6,13 @@ return {
         require("inc_rename").setup()
 
         local wk = require("which-key")
-        wk.register({
-            ["<leader>rn"] = {
+        wk.add({
+            { "<leader>rn",
                 function ()
                     local word = vim.fn.expand("<cword>")
                     return ":IncRename " .. word
                 end,
-                "Rename symbol" },
+                desc = "Rename symbol" },
         }, { expr = true })
     end,
 }

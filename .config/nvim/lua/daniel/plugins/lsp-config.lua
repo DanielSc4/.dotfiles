@@ -52,18 +52,13 @@ return {
 
 
             local wk = require("which-key")
-            wk.register({
-                ["K"] = { vim.lsp.buf.hover, "Hover" },
-                ["<C-K>"] = { vim.lsp.buf.signature_help, "Signature help" },
-                ["gd"] = { vim.lsp.buf.definition, "Go to Definition" },
-                ["gr"] = { vim.lsp.buf.references, "References" },
-                ["<leader>f"] = {
-                    function()
-                        vim.lsp.buf.format { async = true }
-                    end,
-                    "Format current buffer",
-                },
-                ["<leader>ca"] = { vim.lsp.buf.code_action, "Code action", mode = { "n", "v" } },
+            wk.add({
+                { "K", vim.lsp.buf.hover, desc = "Hover" },
+                { "<C-K>", vim.lsp.buf.signature_help, desc = "Signature help" },
+                { "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
+                { "gr", vim.lsp.buf.references, desc = "References" },
+                { "<leader>f", function() vim.lsp.buf.format { async = true } end, desc = "Format current buffer" },
+                { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action", mode = { "n", "v" } },
             })
         end
     },

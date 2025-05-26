@@ -16,18 +16,27 @@ return {
 
 
             local wk = require("which-key")
-            wk.register({
-                ["<leader>f"] = {
-                    name = "Find",
-                    f = { builtin.find_files, "Find files" },
-                    g = { builtin.live_grep, "Live grep" },
-                    b = { builtin.buffers, "Find buffers" },
-                    h = { builtin.help_tags, "Find help tags" },
-                    d = { ":Telescope file_browser<cr><esc>", "Find directories" },
-                    c = { builtin.commands, "Find commands" },
-                    t = { ":Telescope themes<CR>", "Theme Switcher", noremap = true, silent = true },
-                }
+            wk.add({
+                { "<leader>f", group = "Find" },
+                { "<leader>ff", builtin.find_files, desc = "Find files" },
+                { "<leader>fb", builtin.buffers, desc = "Find buffers" },
+                { "<leader>fc", builtin.commands, desc = "Find commands" },
+                { "<leader>fd", ":Telescope file_browser<cr><esc>", desc = "Find directories" },
+                { "<leader>fg", builtin.live_grep, desc = "Live grep" },
+                { "<leader>fh", builtin.help_tags, desc = "Find help tags" },
+                { "<leader>ft", ":Telescope themes<CR>", desc = "Theme Switcher", remap = false },
             }, {})
+            -- wk.register({
+            --     ["<leader>f"] = {
+            --         name = "Find",
+            --         g = { , "Live grep" },
+            --         b = { , "Find buffers" },
+            --         h = { , "Find help tags" },
+            --         d = { ":Telescope file_browser<cr><esc>", "Find directories" },
+            --         c = { , "Find commands" },
+            --         t = { ":Telescope themes<CR>", "Theme Switcher", noremap = true, silent = true },
+            --     }
+            -- }, {})
         end,
     },
     {
