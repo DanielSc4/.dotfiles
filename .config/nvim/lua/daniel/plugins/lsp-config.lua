@@ -8,12 +8,10 @@ return {
                 "jsonls",
                 "ltex",
                 "marksman",
-
                 "pyright",
                 "mypy",
                 "isort",
                 "black",
-
                 "rust_analyzer",
                 "lemminx",
             },
@@ -26,8 +24,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = {
-                }
+                ensure_installed = {}
             })
         end
     },
@@ -37,20 +34,41 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
+            -- Configure lua_ls using vim.lsp.config (new API)
+            vim.lsp.config('lua_ls', {
+                cmd = { 'lua-language-server' },
+                root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
                 capabilities = capabilities,
                 settings = {
                     Lua = {
-                        diagnostic = { globals = { "vim" } }
+                        diagnostics = { globals = { "vim" } }
                     }
                 }
             })
-            lspconfig.pyright.setup({
+
+            -- Configure pyright using vim.lsp.config (new API)
+            vim.lsp.config('pyright', {
+                cmd = { 'pyright-langserver', '--stdio' },
+                root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
                 capabilities = capabilities,
             })
 
+            -- Auto-enable LSP servers for their respective file types
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = 'lua',
+                callback = function()
+                    vim.lsp.enable('lua_ls')
+                end,
+            })
 
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = 'python',
+                callback = function()
+                    vim.lsp.enable('pyright')
+                end,
+            })
+
+            -- Keybindings
             local wk = require("which-key")
             wk.add({
                 { "K", vim.lsp.buf.hover, desc = "Hover" },
