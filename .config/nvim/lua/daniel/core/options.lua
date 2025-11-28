@@ -46,3 +46,4 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
+vim.g.clipboard = 'osc52'
