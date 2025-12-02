@@ -34,7 +34,19 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            -- Configure lua_ls using vim.lsp.config (new API)
+            -- Configure diagnostics display
+            vim.diagnostic.config({
+                virtual_text = {
+                    prefix = '●',  -- Could be '■', '▎', etc.
+                    spacing = 4,
+                },
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+            })
+
+            -- Configure lua_ls
             vim.lsp.config('lua_ls', {
                 cmd = { 'lua-language-server' },
                 root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
@@ -46,7 +58,7 @@ return {
                 }
             })
 
-            -- Configure pyright using vim.lsp.config (new API)
+            -- Configure pyright
             vim.lsp.config('pyright', {
                 cmd = { 'pyright-langserver', '--stdio' },
                 root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
