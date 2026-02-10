@@ -7,10 +7,10 @@ return {
         local wk = require("which-key")
         wk.add({
             { "<leader>x",  group = "Trouble" },
-            { "<leader>xx", function() require("trouble").toggle() end, desc = "Trouble" },
-            { "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, desc = "Trouble on Workspace" },
-            { "<leader>xd", function() require("trouble").toggle("document_diagnostics") end, desc = "Trouble on Document" },
-            { "<leader>xq", function() require("trouble").toggle("quickfix") end, desc = "Trouble Quickfix" },
+            { "<leader>xx", function() require("trouble").toggle("diagnostics") end, desc = "Trouble" },
+            { "<leader>xw", function() require("trouble").toggle("diagnostics") end, desc = "Trouble on Workspace" },
+            { "<leader>xd", function() require("trouble").toggle({ mode = "diagnostics", filter = { buf = 0 } }) end, desc = "Trouble on Document" },
+            { "<leader>xq", function() require("trouble").toggle("qflist") end, desc = "Trouble Quickfix" },
             { "<leader>xl", function() require("trouble").toggle("loclist") end, desc = "Trouble Location list" },
         }, {})
 
