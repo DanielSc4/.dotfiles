@@ -65,17 +65,13 @@ return {
                 },
              }) 
             -- Enhanced hover and signature help with borders
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-                vim.lsp.handlers.hover, {
-                    border = "rounded",
-                }
-            )
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-                vim.lsp.handlers.signature_help, {
-                    border = "rounded",
-                }
-            )
-            
+            vim.lsp.buf.hover = function()
+                vim.lsp.buf.hover({ border = "rounded" })
+            end
+            vim.lsp.buf.signature_help = function()
+                vim.lsp.buf.signature_help({ border = "rounded" })
+            end            
+
             -- Configure lua_ls
             vim.lsp.config('lua_ls', {
                 cmd = { 'lua-language-server' },
